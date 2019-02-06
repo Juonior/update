@@ -9,7 +9,7 @@ function main()
     if not isSampLoaded() then return end
     while not isSampAvailable() do wait(100) end
     sampRegisterChatCommand("download", download)
-      sampAddChatMessage("{00ff85}[MVDHelper Jun v1]: {d0ffe9}Работает.", 0x00ff85)
+      sampAddChatMessage("{00ff85}[MVDHelper Jun v2]: {d0ffe9}Работает.", 0x00ff85)
     while true do
         wait(0)
         if not sampIsChatInputActive() then
