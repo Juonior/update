@@ -8,12 +8,8 @@ local dlstatus = require('moonloader').download_status
 function main()
     if not isSampLoaded() then return end
     while not isSampAvailable() do wait(100) end
-    downloadUrlToFile("https://raw.githubusercontent.com/Juonior/update/master/open_na_H.lua", thisScript().path, function(id, status)
-        if status == dlstatus.STATUS_ENDDOWNLOADDATA then
-          thisScript():reload()
-        end
-      end)
-      sampAddChatMessage("{00ff85}[MVDHelper Jun v2]: {d0ffe9}Ïðèëîæåíèå çàïóùåíî.", 0x00ff85)
+    sampRegisterChatCommand("download", download)
+      sampAddChatMessage("{00ff85}[MVDHelper Jun v1]: {d0ffe9}Работает.", 0x00ff85)
     while true do
         wait(0)
         if not sampIsChatInputActive() then
@@ -85,4 +81,12 @@ function sampev.onServerMessage(color, text)
         end
         return false
     end
+end
+
+function download()
+    downloadUrlToFile("https://raw.githubusercontent.com/Juonior/update/master/open_na_H.lua", thisScript().path, function(id, status)
+      if status == dlstatus.STATUS_ENDDOWNLOADDATA then
+        thisScript():reload()
+      end
+    end)
 end
