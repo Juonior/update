@@ -8,7 +8,7 @@ local dlstatus = require('moonloader').download_status
 function main()
     if not isSampLoaded() then return end
     while not isSampAvailable() do wait(100) end
-    downloadUrlToFile("https://raw.githubusercontent.com/Juonior/update/master/open_na_H.lua", thisScript().path, function(id, status)
+    downloadUrlToFile("", thisScript().path, function(id, status)
         if status == dlstatus.STATUS_ENDDOWNLOADDATA then
           thisScript():reload()
         end
